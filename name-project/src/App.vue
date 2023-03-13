@@ -1,5 +1,5 @@
 <script setup>
-
+import TypeSelect from './components/TypeSelect.vue';
 </script>
  
 <template>
@@ -37,18 +37,9 @@
               </div>
             </div>
             <!-- type selection components-->
-            <ul class="flex flex-row ml-[50px] gap-3 h-[50%]">
-              <li v-for="({ type, iconURL }, index) in category" :key="index"
-                class="target w-[89px] h-[130px] rounded-[59px] bg-white text-black shadow-xl font-['?????'] cursor-pointer"
-                @click="isActive(index)" :class="typeNum === index ? 'bg-black' : 'bg-white'">
-                <div class="text-center mt-[20px]">
-                  <img :src="iconURL" class="ml-[10px]" />
-                  <p :class="typeNum === index ? 'text-white' : 'text-black'">
-                    {{ type }}
-                  </p>
-                </div>
-              </li>
-            </ul>
+            <div>
+              <TypeSelect/>
+            </div>
           </div>
           <!-- แสดง MENU -->
           <div id="item" class="w-[100%] h-[50%] flex flex-col">

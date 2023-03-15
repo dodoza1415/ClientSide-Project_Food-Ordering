@@ -2,10 +2,15 @@
 import { ref } from "vue";
 import HomeIcon from "./assets/icons/IcOutlineHome.vue"
 import TypeSelect from "./components/TypeSelect.vue";
+import MenuShowing from "./components/MenuShowing.vue";
 import { getItems } from "./composable/getItems";
 
 const typeId = ref(0);
 const items = ref(getItems());
+
+// const menuArr = ref(getItems()[0].menu)
+// console.log(menuArr)
+
 
 const isActive = (num) => {
   typeId.value = num;
@@ -61,7 +66,7 @@ const isActive = (num) => {
                 v-for="(item, index) in items"
                 :key="index"
                 class="w-[89px] h-[130px] rounded-[59px] bg-white text-black shadow-xl font-['?????'] cursor-pointer"
-                :class="typeId === index ? 'bg-black' : 'bg-white'"
+                :class="typeId === index ? 'bg-black': 'bg-white'"
               >
                 <TypeSelect :item="item" :typeId="typeId" :index="index" @typeSelect="isActive" />
               </li>
@@ -93,10 +98,10 @@ const isActive = (num) => {
             <div
               class="grid grid-cols-3 justify-items-center gap-y-4 overflow-scroll"
             >
-              <div v-for="(menu, index) in filterFood" :key="index"
+              <!-- <div v-for="(menu, index) in menuArr" :key="index"
                 class="w-[180px] h-[237px] rounded-[31px] bg-white shadow-lg flex flex-col">
-
-              </div>
+                
+              </div> -->
             </div>
           </div>
         </div>

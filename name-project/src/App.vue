@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import HomeIcon from "./assets/icons/IcOutlineHome.vue"
 import TypeSelect from "./components/TypeSelect.vue";
 import { getItems } from "./composable/getItems";
 
@@ -21,22 +22,22 @@ const isActive = (num) => {
       <div id="menu" class="flex flex-col w-[20%] h-[100%]">
         <!-- Profile components -->
         <div id="profile" class="flex flex-col mt-[80px]">
-          <!-- <img id="profilepic" src="./assets/Dr.rash.jpg" alt="profilePic" class="rounded-lg" />
+          <img id="profilepic" src="./assets/Dr.rash.jpg" alt="profilePic" class="rounded-lg" />
           <h1 id="name" class="text-center text-xl font-['Baloo'] mt-3">
             Dr. Marcus Rashford
-          </h1> -->
+          </h1>
         </div>
         <!-- Menu component -->
         <div
           id="home"
           class="flex justify-center mt-[50px] font-['Baloo'] cursor-pointer"
         >
-          <!-- <div id="home2" class="flex flex-row">
+          <div id="home2" class="flex flex-row">
             <div class="w-[61px] h-[57px] bg-white rounded-[20px] shadow-lg relative pt-[10px]">
-              <IcOutlineHome id="homeIcon" />
+              <HomeIcon id="homeIcon" />
             </div>
             <p class="text-2xl m-auto ml-5">Home</p>
-          </div> -->
+          </div>
         </div>
       </div>
       <!-- ORDER -->
@@ -57,12 +58,12 @@ const isActive = (num) => {
             <!-- type selection components-->
             <ul class="flex flex-row ml-[50px] gap-3 h-[50%]">
               <li
-                v-for="item in items"
-                :key="item.id - 1"
+                v-for="(item, index) in items"
+                :key="index"
                 class="w-[89px] h-[130px] rounded-[59px] bg-white text-black shadow-xl font-['?????'] cursor-pointer"
-                :class="typeId === item.id - 1 ? 'bg-black' : 'bg-white'"
+                :class="typeId === index ? 'bg-black' : 'bg-white'"
               >
-                <TypeSelect :item="item" :typeId="typeId" @typeSelect="isActive" />
+                <TypeSelect :item="item" :typeId="typeId" :index="index" @typeSelect="isActive" />
               </li>
             </ul>
           </div>
@@ -92,26 +93,10 @@ const isActive = (num) => {
             <div
               class="grid grid-cols-3 justify-items-center gap-y-4 overflow-scroll"
             >
-              <!-- <div v-for="(menu, index) in filterFood" :key="index"
+              <div v-for="(menu, index) in filterFood" :key="index"
                 class="w-[180px] h-[237px] rounded-[31px] bg-white shadow-lg flex flex-col">
-                <div class="flex justify-center">
-                  <img :src="menu.picURL" class="w-[120px] h-[120px] rounded-[30px]" />
-                </div>
-                <div class="flex flex-row justify-center">
-                  <p class="font-['Baloo'] text-[0.9em] text-center mt-3">
-                    {{ menu.name }}
-                  </p>
-                </div>
-                <div class="flex flex-row">
-                  <div class="w-full flex justify-center mt-7">
-                    <p class="font-['Baloo'] text-lg">{{ menu.price }}฿</p>
-                  </div>
-                  <div class="w-full">
-                    <input type="checkbox" :id="menu" :value="menu" v-model="cartItem"
-                      class="checkbox checkbox-success checkbox-md ml-8 mt-7" />
-                  </div>
-                </div>
-              </div> -->
+
+              </div>
             </div>
           </div>
         </div>

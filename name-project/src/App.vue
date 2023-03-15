@@ -8,12 +8,13 @@ import { getItems } from "./composable/getItems";
 const typeId = ref(0);
 const items = ref(getItems());
 
-// const menuArr = ref(getItems()[0].menu)
-// console.log(menuArr)
+const menuArr = ref(getItems()[0].menu)
+console.log(menuArr)
 
 
 const isActive = (num) => {
   typeId.value = num;
+  menuArr.value = getItems()[num].menu
 };
 </script>
 
@@ -98,10 +99,10 @@ const isActive = (num) => {
             <div
               class="grid grid-cols-3 justify-items-center gap-y-4 overflow-scroll"
             >
-              <!-- <div v-for="(menu, index) in menuArr" :key="index"
+              <div v-for="(menu, index) in menuArr" :key="index"
                 class="w-[180px] h-[237px] rounded-[31px] bg-white shadow-lg flex flex-col">
                 
-              </div> -->
+              </div>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref } from "vue";
 
 const props = defineProps({
   menu: {
@@ -8,9 +8,16 @@ const props = defineProps({
   },
 });
 
-defineEmits(['passCartItem'])
+defineEmits(["passCartItem"]);
 
-const cartItem = ref([])
+const addbtn = ref(null)
+const isAdd = ref(false)
+const add = () => {
+  isAdd.value = !isAdd.value
+  isAdd.value ? addbtn.value.textContent = 'Added' : addbtn.value.textContent = 'Add to cart'
+  console.log(addbtn.value.id)
+}
+
 </script>
 
 <template>
@@ -24,19 +31,20 @@ const cartItem = ref([])
     </p>
   </div>
 
-  <div class="flex flex-row">
-    <div class="w-full flex justify-center mt-7">
+  <div class="flex flex-col">
+    <div class="w-full flex justify-center">
       <p class="font-['Baloo'] text-lg">{{ menu.price }}฿</p>
     </div>
-    <div class="w-full">
-      <input
-        type="checkbox"
+    <div class="w-full flex justify-center">
+      <button
         :id="menu.name"
-        :value="menu"
-        v-model="cartItem"
-        class="checkbox checkbox-success checkbox-md ml-8 mt-7"
-        @change ="$emit('passCartItems', cartItem, $event.target.checked, $event.target.id)"
-      />
+        class="btn btn-active btn-sm text-[10px]"
+        ref="addbtn"
+        @click ="$emit('passCartItems', menu, menu.name); add()"
+        :class="isAdd ? 'btn btn-success' : 'btn btn-active btn-sm text-[10px]'"
+      >
+        Add to Cart 
+      </button>
     </div>
   </div>
 </template>

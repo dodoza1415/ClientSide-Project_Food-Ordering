@@ -18,10 +18,11 @@ const isActive = (num) => {
 };
 
 const userCart = ref([])
-const getCartItems = (cartItems, isChecked, id) => {
-  isChecked
-  ? userCart.value.push(cartItems[0])
-  : userCart.value.splice((userCart.value.indexOf(cartItems[0])),1)
+const getCartItems = (cartItems, menuName) => {
+  userCart.value.includes(cartItems) 
+  ? userCart.value.push(cartItems)
+  : userCart.value.push(cartItems)
+  
 }
 
 </script>
@@ -76,7 +77,7 @@ const getCartItems = (cartItems, isChecked, id) => {
                 v-for="(item, index) in items"
                 :key="index"
                 class="w-[89px] h-[130px] rounded-[59px] bg-white text-black shadow-xl font-['?????'] cursor-pointer"
-                :class="typeId === index ? 'bg-black': 'bg-white'"
+                :class="typeId === index ? 'bg-gray-900': 'bg-white'"
               >
                 <TypeSelect :item="item" :typeId="typeId" :index="index" @typeSelect="isActive" />
               </li>

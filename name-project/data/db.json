@@ -5,7 +5,8 @@
       "type": "All",
       "iconURL": "FoodTypeIcons/Allitem.png",
       "menu": [
-        { "name": "Pizza", "price": 359, "picURL": "FoodPic/Pizza.png" },
+        { "name": "Pizza", "price": 359, 
+          "picURL": "FoodPic/Pizza.png" },
         {
           "name": "French Fries",
           "price": 68,

@@ -20,8 +20,8 @@ const isActive = (num) => {
 const userCart = ref([])
 const getCartItems = (cartItems, menuName) => {
   userCart.value.includes(cartItems) 
-  ? userCart.value.push(cartItems)
-  : userCart.value.push(cartItems)
+  ? ''
+  :  userCart.value.push(cartItems)
   
 }
 

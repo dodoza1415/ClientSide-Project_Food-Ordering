@@ -10,13 +10,15 @@ const props = defineProps({
 
 defineEmits(["passCartItem"]);
 
-const addbtn = ref(null)
-const isAdd = ref(false)
+const addbtn = ref(null);
+const isAdd = ref(false);
 const add = () => {
-  isAdd.value = !isAdd.value
-  isAdd.value ? addbtn.value.textContent = 'Added' : addbtn.value.textContent = 'Add to cart'
-  console.log(addbtn.value.id)
-}
+  isAdd.value = !isAdd.value;
+  isAdd.value
+    ? (addbtn.value.textContent = "Added")
+    : (addbtn.value.textContent = "Add to cart");
+  // console.log(addbtn.value.id);
+};
 
 </script>
 
@@ -31,21 +33,25 @@ const add = () => {
     </p>
   </div>
 
-  <div class="flex flex-col">
-    <div class="w-full flex justify-center">
-      <p class="font-['Baloo'] text-lg">{{ menu.price }}฿</p>
-    </div>
-    <div class="w-full flex justify-center">
-      <button
-        :id="menu.name"
-        class="btn btn-active btn-sm text-[10px]"
-        ref="addbtn"
-        @click ="$emit('passCartItems', menu, menu.name); add()"
-        :class="isAdd ? 'btn btn-success' : 'btn btn-active btn-sm text-[10px]'"
-      >
-        Add to Cart 
-      </button>
-    </div>
+  <div class="w-full flex justify-center">
+    <p class="font-['Baloo'] text-lg">{{ menu.price }}฿</p>
+  </div>
+
+  <div class="w-full flex justify-center">
+    <button
+    type="button"
+      :id="menu.name"
+      class="border border-gray-300 rounded-md p-2 bg-black text-white"
+      ref="addbtn"
+      @click="
+        $emit('passCartItems', menu, menu.name);
+        add();
+      "
+      :class="isAdd ? 'border-gray-300 rounded-md p-2 bg-green-300 text-slate-600' : ''"
+      :disabled="isAdd"
+    >
+    Add to Cart
+  </button>
   </div>
 </template>
 

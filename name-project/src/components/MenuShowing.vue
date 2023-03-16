@@ -47,7 +47,7 @@ const add = () => {
         $emit('passCartItems', menu, menu.name);
         add();
       "
-      :class="isAdd ? 'border-gray-300 rounded-md p-2 bg-green-300 text-slate-600' : ''"
+      :class="isAdd ? 'border rounded-md p-2 bg-green-300 text-slate-600 opacity-50' : ''"
       :disabled="isAdd"
     >
     Add to Cart

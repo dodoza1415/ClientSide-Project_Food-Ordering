@@ -16,9 +16,18 @@ const isActive = (num) => {
   typeId.value = num;
   menuArr.value = getItems()[num].menu
 };
+
+const userCart = ref([])
+const getCartItems = (cartItems, isChecked, id) => {
+  isChecked
+  ? userCart.value.push(cartItems[0])
+  : userCart.value.splice((userCart.value.indexOf(cartItems[0])),1)
+}
+
 </script>
 
 <template>
+  {{ userCart }}
   <div id="main" class="w-full h-[100vh] pl-[50px] flex justify-center">
     <div
       id="secondary"
@@ -101,7 +110,7 @@ const isActive = (num) => {
             >
               <div v-for="(menu, index) in menuArr" :key="index"
                 class="w-[180px] h-[237px] rounded-[31px] bg-white shadow-lg flex flex-col">
-                
+                <MenuShowing :menu="menu" @passCartItems="getCartItems"/>
               </div>
             </div>
           </div>

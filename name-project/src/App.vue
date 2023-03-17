@@ -1,30 +1,26 @@
 <script setup>
 import { ref } from "vue";
-import HomeIcon from "./assets/icons/IcOutlineHome.vue"
+import HomeIcon from "./assets/icons/IcOutlineHome.vue";
 import TypeSelect from "./components/TypeSelect.vue";
 import MenuShowing from "./components/MenuShowing.vue";
+import CartItemsShowing from "./components/CartItemsShowing.vue";
 import { getItems } from "./composable/getItems";
 
 const typeId = ref(0);
 const items = ref(getItems());
 
-const menuArr = ref(getItems()[0].menu)
-console.log(menuArr)
-
+const menuArr = ref(getItems()[0].menu);
+console.log(menuArr);
 
 const isActive = (num) => {
   typeId.value = num;
-  menuArr.value = getItems()[num].menu
+  menuArr.value = getItems()[num].menu;
 };
 
-const userCart = ref([])
+const userCart = ref([]);
 const getCartItems = (cartItems, menuName) => {
-  userCart.value.includes(cartItems) 
-  ? ''
-  :  userCart.value.push(cartItems)
-  
-}
-
+  userCart.value.includes(cartItems) ? "" : userCart.value.push(cartItems);
+};
 </script>
 
 <template>
@@ -38,7 +34,12 @@ const getCartItems = (cartItems, menuName) => {
       <div id="menu" class="flex flex-col w-[20%] h-[100%]">
         <!-- Profile components -->
         <div id="profile" class="flex flex-col mt-[80px]">
-          <img id="profilepic" src="./assets/Dr.rash.jpg" alt="profilePic" class="rounded-lg" />
+          <img
+            id="profilepic"
+            src="./assets/Dr.rash.jpg"
+            alt="profilePic"
+            class="rounded-lg"
+          />
           <h1 id="name" class="text-center text-xl font-['Baloo'] mt-3">
             Dr. Marcus Rashford
           </h1>
@@ -49,7 +50,9 @@ const getCartItems = (cartItems, menuName) => {
           class="flex justify-center mt-[50px] font-['Baloo'] cursor-pointer"
         >
           <div id="home2" class="flex flex-row">
-            <div class="w-[61px] h-[57px] bg-white rounded-[20px] shadow-lg relative pt-[10px]">
+            <div
+              class="w-[61px] h-[57px] bg-white rounded-[20px] shadow-lg relative pt-[10px]"
+            >
               <HomeIcon id="homeIcon" />
             </div>
             <p class="text-2xl m-auto ml-5">Home</p>
@@ -77,9 +80,14 @@ const getCartItems = (cartItems, menuName) => {
                 v-for="(item, index) in items"
                 :key="index"
                 class="w-[89px] h-[130px] rounded-[59px] bg-white text-black shadow-xl font-['?????'] cursor-pointer"
-                :class="typeId === index ? 'bg-gray-900': 'bg-white'"
+                :class="typeId === index ? 'bg-slate-900' : 'bg-white'"
               >
-                <TypeSelect :item="item" :typeId="typeId" :index="index" @typeSelect="isActive" />
+                <TypeSelect
+                  :item="item"
+                  :typeId="typeId"
+                  :index="index"
+                  @typeSelect="isActive"
+                />
               </li>
             </ul>
           </div>
@@ -109,9 +117,12 @@ const getCartItems = (cartItems, menuName) => {
             <div
               class="grid grid-cols-3 justify-items-center gap-y-4 overflow-scroll"
             >
-              <div v-for="(menu, index) in menuArr" :key="index"
-                class="w-[180px] h-[237px] rounded-[31px] bg-white shadow-lg flex flex-col">
-                <MenuShowing :menu="menu" @passCartItems="getCartItems"/>
+              <div
+                v-for="(menu, index) in menuArr"
+                :key="index"
+                class="w-[180px] h-[237px] rounded-[31px] bg-white shadow-lg flex flex-col"
+              >
+                <MenuShowing :menu="menu"/>
               </div>
             </div>
           </div>
@@ -124,8 +135,8 @@ const getCartItems = (cartItems, menuName) => {
           </div>
           <!-- cart components -->
 
-          <!-- <div class="w-full ml-[20px] font-['?????']">
-            <table class="w-full">
+          <div class="w-full ml-[20px] font-['?????']">
+            <!-- <table class="w-full">
               <thead>
                 <tr class="text-left">
                   <th class="w-[45%]">Menu</th>
@@ -148,8 +159,11 @@ const getCartItems = (cartItems, menuName) => {
                   <th>{{ totalAmount }} Baht</th>
                 </tr>
               </tbody>
-            </table>
-          </div> -->
+            </table> -->
+
+            <!-- <CartItemsShowing :cartItems="userCart" /> -->
+
+          </div>
         </div>
       </div>
     </div>

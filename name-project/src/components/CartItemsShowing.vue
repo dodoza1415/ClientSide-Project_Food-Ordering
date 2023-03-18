@@ -1,6 +1,6 @@
 <script setup>
 import { computed, provide, ref } from "vue";
-
+import QuantityOrdered from "./QuantityOrdered.vue";
 defineProps({
   cartItems: {
     type: Object,
@@ -8,6 +8,11 @@ defineProps({
   },
 });
 
+const quantity = ref(1)
+const getQuantityOrdered = (quantityOrdered) => {
+    quantity.value = quantityOrdered
+    console.log(quantity.value)
+}
 
 </script>
 
@@ -31,17 +36,15 @@ defineProps({
           </button>
         </td>
         <td>{{ item.name }}</td>
-        <td>{{ item.price }}฿</td>
+        <td>{{ item.price * quantity <= 0 ? item.price : item.price * quantity }}฿</td>
         <td class="pl-[15px]">
-          <button class="btn btn-xs btn-circle btn-ghost btn-active">-</button>
-          1
-          <button class="btn btn-xs btn-circle btn-ghost btn-active">+</button>
+          <QuantityOrdered @quantityOrdered="getQuantityOrdered"/>
         </td>
       </tr>
       <tr class="text-left">
         <th></th>
         <th>Total Amount:</th>
-        <th>{{ totalAmount }} Baht</th>
+        <th>{{ cartItems.reduce((total, currentValue) => total + currentValue.price * quantity, 0) }} Baht</th>
       </tr>
     </tbody>
   </table>

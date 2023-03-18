@@ -10,7 +10,6 @@ const typeId = ref(0);
 const items = ref(getItems());
 
 const menuArr = ref(getItems()[0].menu);
-console.log(menuArr);
 
 const isActive = (num) => {
   typeId.value = num;
@@ -18,9 +17,24 @@ const isActive = (num) => {
 };
 
 const userCart = ref([]);
-const getCartItems = (cartItems, menuName) => {
-  userCart.value.includes(cartItems) ? "" : userCart.value.push(cartItems);
+const getCheckedMenu = (cartItems, isChecked, eId) => {
+  if (isChecked === true) {
+    userCart.value.push(cartItems);
+  } else if (isChecked === false) {
+    const eIdArr = userCart.value.map((i) => i.name);
+    // console.log(eIdArr.indexOf(eId));
+
+    userCart.value.splice((eIdArr.indexOf(eId)), 1);
+
+  }
+
+  // console.log(userCart.value);
+  // console.log(isChecked);
+  // console.log(eId);
+  // console.log(cartItems);
+  // console.log(userCart.value.indexOf(cartItems));
 };
+
 </script>
 
 <template>
@@ -122,7 +136,7 @@ const getCartItems = (cartItems, menuName) => {
                 :key="index"
                 class="w-[180px] h-[237px] rounded-[31px] bg-white shadow-lg flex flex-col"
               >
-                <MenuShowing :menu="menu"/>
+                <MenuShowing :menu="menu" @checkedMenu="getCheckedMenu" />
               </div>
             </div>
           </div>
@@ -161,8 +175,7 @@ const getCartItems = (cartItems, menuName) => {
               </tbody>
             </table> -->
 
-            <!-- <CartItemsShowing :cartItems="userCart" /> -->
-
+            <CartItemsShowing :cartItems="userCart" />
           </div>
         </div>
       </div>

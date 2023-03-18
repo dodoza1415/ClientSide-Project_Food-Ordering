@@ -8,6 +8,7 @@ const props = defineProps({
   },
 });
 
+defineEmits(['checkedMenu'])
 const cartItems = ref([])
 </script>
 
@@ -33,6 +34,7 @@ const cartItems = ref([])
       :value="menu"
       v-model="cartItems"
       class="checkbox checkbox-success checkbox-md"
+      @change="$emit('checkedMenu', cartItems[0], $event.target.checked, $event.target.id)"
     />
   </div>
 </template>

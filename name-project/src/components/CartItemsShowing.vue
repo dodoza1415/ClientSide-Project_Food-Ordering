@@ -2,7 +2,7 @@
 import { computed, provide, ref } from "vue";
 import QuantityOrdered from "./QuantityOrdered.vue";
 defineProps({
-  cartItems: {
+  userCart: {
     type: Object,
     require: true,
   },
@@ -27,7 +27,7 @@ const getQuantityOrdered = (quantityOrdered) => {
       </tr>
     </thead>
     <tbody>
-      <tr v-for="(item, index) in cartItems">
+      <tr v-for="(item, index) in userCart">
         <td class="pr-1">
           <button
             class="btn btn-xs btn-circle btn-ghost btn-active"
@@ -44,7 +44,7 @@ const getQuantityOrdered = (quantityOrdered) => {
       <tr class="text-left">
         <th></th>
         <th>Total Amount:</th>
-        <th>{{ cartItems.reduce((total, currentValue) => total + currentValue.price * quantity, 0) }} Baht</th>
+        <th>{{ userCart.reduce((total, currentValue) => total + currentValue.price * quantity, 0) }} Baht</th>
       </tr>
     </tbody>
   </table>

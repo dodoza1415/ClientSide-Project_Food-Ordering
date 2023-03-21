@@ -11,9 +11,9 @@ const items = ref(getItems());
 
 const menuArr = ref(getItems()[0].menu);
 
-const isActive = (num) => {
-  typeId.value = num;
-  menuArr.value = getItems()[num].menu;
+const isActive = (index) => {
+  typeId.value = index;
+  menuArr.value = getItems()[index].menu;
 };
 
 const userCart = ref([]);
@@ -23,18 +23,18 @@ const getCheckedMenu = (cartItems, isChecked, eId) => {
   } else if (isChecked === false) {
     const eIdArr = userCart.value.map((i) => i.name);
     // console.log(eIdArr.indexOf(eId));
+    // console.log(eIdArr)
 
-    userCart.value.splice((eIdArr.indexOf(eId)), 1);
-
+    userCart.value.splice(eIdArr.indexOf(eId), 1);
   }
 
-  // console.log(userCart.value);
+  // console.log(cartItems);
   // console.log(isChecked);
   // console.log(eId);
   // console.log(cartItems);
+  // console.log(userCart.value);
   // console.log(userCart.value.indexOf(cartItems));
 };
-
 </script>
 
 <template>
@@ -94,7 +94,7 @@ const getCheckedMenu = (cartItems, isChecked, eId) => {
                 v-for="(item, index) in items"
                 :key="index"
                 class="w-[89px] h-[130px] rounded-[59px] bg-white text-black shadow-xl font-['?????'] cursor-pointer"
-                :class="typeId === index ? 'bg-slate-900' : 'bg-white'"
+                :class="typeId === index ? 'bg-black' : 'bg-white'"
               >
                 <TypeSelect
                   :item="item"
@@ -175,7 +175,7 @@ const getCheckedMenu = (cartItems, isChecked, eId) => {
               </tbody>
             </table> -->
 
-            <CartItemsShowing :cartItems="userCart" />
+            <CartItemsShowing :userCart="userCart" />
           </div>
         </div>
       </div>

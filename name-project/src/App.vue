@@ -4,6 +4,7 @@ import HomeIcon from "./assets/icons/IcOutlineHome.vue";
 import TypeSelect from "./components/TypeSelect.vue";
 import MenuShowing from "./components/MenuShowing.vue";
 import CartItemsShowing from "./components/CartItemsShowing.vue";
+import SearchBar from "./components/SearchBar.vue";
 import { getItems } from "./composable/getItems";
 
 const typeId = ref(0);
@@ -113,6 +114,7 @@ const getCheckedMenu = (cartItems, isChecked, eId) => {
               <div class="w-full flex justify-center">
                 <p class="font-['Baloo'] text-[48px]">Menus</p>
               </div>
+              <SearchBar/>
               <!-- Search Bar components -->
 
               <!-- <div class="w-full flex justify-end">

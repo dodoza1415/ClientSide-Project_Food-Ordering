@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from "vue";
 const props = defineProps({
   menuArr: {
     type: Object,
@@ -9,16 +9,15 @@ const props = defineProps({
 
 // console.log(props.menuArr)
 
-
-const userCart = ref([])
+const userCart = ref([]);
 const addToCart = (menu) => {
   // console.log(menu);
-  menu.isAdd = true
-  userCart.value.push(menu)
+  menu.isAdd = true;
+  userCart.value.push(menu);
   // console.log(userCart.value)
 };
 
-defineEmits(['currentUserCart'])
+defineEmits(["currentUserCart"]);
 </script>
 
 <template>
@@ -35,7 +34,10 @@ defineEmits(['currentUserCart'])
 
       <button
         class="btn btn-success btn-md w-[100px] self-center mt-2 font-['Baloo']"
-        @click="addToCart(menu); $emit('currentUserCart', userCart)"
+        @click="
+          addToCart(menu);
+          $emit('currentUserCart', userCart);
+        "
         :disabled="menu.isAdd"
       >
         Add

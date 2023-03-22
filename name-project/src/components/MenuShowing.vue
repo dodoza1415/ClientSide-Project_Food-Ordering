@@ -7,7 +7,7 @@ const props = defineProps({
   },
 });
 
-console.log(props.menuArr)
+// console.log(props.menuArr)
 
 
 const userCart = ref([])
@@ -15,8 +15,10 @@ const addToCart = (menu) => {
   // console.log(menu);
   menu.isAdd = true
   userCart.value.push(menu)
-  console.log(userCart.value)
+  // console.log(userCart.value)
 };
+
+defineEmits(['currentUserCart'])
 </script>
 
 <template>
@@ -29,11 +31,11 @@ const addToCart = (menu) => {
         <img :src="menu.picURL" class="w-[120px] h-[120px] rounded-[30px]" />
       </div>
 
-      <p class="font-['Baloo'] text-lg self-center">{{ menu.price }}฿</p>
+      <p class="font-['Baloo'] text-lg self-center">{{ menu.price }} ฿</p>
 
       <button
         class="btn btn-success btn-md w-[100px] self-center mt-2 font-['Baloo']"
-        @click="addToCart(menu)"
+        @click="addToCart(menu); $emit('currentUserCart', userCart)"
         :disabled="menu.isAdd"
       >
         Add

@@ -17,31 +17,13 @@ const updateMenuArr = (updateMenu) => {
   // console.log(menuArr.value)
 }
 
-
-// const isActive = (index) => {
-//   typeId.value = index;
-//   menuArr.value = getItems()[index].menu;
-// };
-
 const userCart = ref([]);
-// const getCheckedMenu = (cartItems, isChecked, eId) => {
-//   if (isChecked === true) {
-//     userCart.value.push(cartItems);
-//   } else if (isChecked === false) {
-//     const eIdArr = userCart.value.map((i) => i.name);
-//     // console.log(eIdArr.indexOf(eId));
-//     // console.log(eIdArr)
+const updateUserCart = (updateCart) => {
+  userCart.value = updateCart
+  // console.log(userCart.value)
+}
 
-//     userCart.value.splice(eIdArr.indexOf(eId), 1);
-//   }
 
-  // console.log(cartItems);
-  // console.log(isChecked);
-  // console.log(eId);
-  // console.log(cartItems);
-  // console.log(userCart.value);
-  // console.log(userCart.value.indexOf(cartItems));
-// };
 </script>
 
 <template>
@@ -123,7 +105,7 @@ const userCart = ref([]);
             </div>
             <!-- Menu Grid -->
             <!-- menu components -->
-            <MenuShowing :menuArr="menuArr"/>
+            <MenuShowing :menuArr="menuArr" @currentUserCart="updateUserCart"/>
           </div>
         </div>
         <!-- cart -->

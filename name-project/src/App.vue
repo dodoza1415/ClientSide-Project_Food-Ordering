@@ -7,27 +7,33 @@ import CartItemsShowing from "./components/CartItemsShowing.vue";
 import SearchBar from "./components/SearchBar.vue";
 import { getItems } from "./composable/getItems";
 
-const typeId = ref(0);
 const items = ref(getItems());
+// console.log(items)
 
-const menuArr = ref(getItems()[0].menu);
+const menuArr = ref(items.value[0].menu)
+const updateMenuArr = (updateMenu) => {
+  // console.log(updateMenu)
+  menuArr.value = updateMenu
+  // console.log(menuArr.value)
+}
 
-const isActive = (index) => {
-  typeId.value = index;
-  menuArr.value = getItems()[index].menu;
-};
+
+// const isActive = (index) => {
+//   typeId.value = index;
+//   menuArr.value = getItems()[index].menu;
+// };
 
 const userCart = ref([]);
-const getCheckedMenu = (cartItems, isChecked, eId) => {
-  if (isChecked === true) {
-    userCart.value.push(cartItems);
-  } else if (isChecked === false) {
-    const eIdArr = userCart.value.map((i) => i.name);
-    // console.log(eIdArr.indexOf(eId));
-    // console.log(eIdArr)
+// const getCheckedMenu = (cartItems, isChecked, eId) => {
+//   if (isChecked === true) {
+//     userCart.value.push(cartItems);
+//   } else if (isChecked === false) {
+//     const eIdArr = userCart.value.map((i) => i.name);
+//     // console.log(eIdArr.indexOf(eId));
+//     // console.log(eIdArr)
 
-    userCart.value.splice(eIdArr.indexOf(eId), 1);
-  }
+//     userCart.value.splice(eIdArr.indexOf(eId), 1);
+//   }
 
   // console.log(cartItems);
   // console.log(isChecked);
@@ -35,7 +41,7 @@ const getCheckedMenu = (cartItems, isChecked, eId) => {
   // console.log(cartItems);
   // console.log(userCart.value);
   // console.log(userCart.value.indexOf(cartItems));
-};
+// };
 </script>
 
 <template>
@@ -90,21 +96,8 @@ const getCheckedMenu = (cartItems, isChecked, eId) => {
               </div>
             </div>
             <!-- type selection components-->
-            <ul class="flex flex-row ml-[50px] gap-3 h-[50%]">
-              <li
-                v-for="(item, index) in items"
-                :key="index"
-                class="w-[89px] h-[130px] rounded-[59px] bg-white text-black shadow-xl font-['?????'] cursor-pointer"
-                :class="typeId === index ? 'bg-black' : 'bg-white'"
-              >
-                <TypeSelect
-                  :item="item"
-                  :typeId="typeId"
-                  :index="index"
-                  @typeSelect="isActive"
-                />
-              </li>
-            </ul>
+            <TypeSelect :items="items" @updateMenuArr="updateMenuArr"/>
+            
           </div>
           <!-- แสดง MENU -->
           <div id="item" class="w-[100%] h-[50%] flex flex-col">
@@ -130,17 +123,7 @@ const getCheckedMenu = (cartItems, isChecked, eId) => {
             </div>
             <!-- Menu Grid -->
             <!-- menu components -->
-            <div
-              class="grid grid-cols-3 justify-items-center gap-y-4 overflow-scroll"
-            >
-              <div
-                v-for="(menu, index) in menuArr"
-                :key="index"
-                class="w-[180px] h-[237px] rounded-[31px] bg-white shadow-lg flex flex-col"
-              >
-                <MenuShowing :menu="menu" @checkedMenu="getCheckedMenu" />
-              </div>
-            </div>
+            <MenuShowing :menuArr="menuArr"/>
           </div>
         </div>
         <!-- cart -->

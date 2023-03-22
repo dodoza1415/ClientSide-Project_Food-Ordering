@@ -5,82 +5,146 @@
       "type": "All",
       "iconURL": "FoodTypeIcons/Allitem.png",
       "menu": [
-        { "name": "Pizza", "price": 359, 
-          "picURL": "FoodPic/Pizza.png" },
+        {
+          "name": "Pizza",
+          "price": 359,
+          "picURL": "FoodPic/Pizza.png",
+          "quantity": 1,
+          "isAdd": false
+        },
+
         {
           "name": "French Fries",
           "price": 68,
-          "picURL": "FoodPic/FrenchFries.png"
+          "picURL": "FoodPic/FrenchFries.png",
+          "quantity": 1,
+          "isAdd": false
         },
         {
           "name": "Hamburger",
           "price": 149,
-          "picURL": "FoodPic/Hamburger.png"
+          "picURL": "FoodPic/Hamburger.png",
+          "quantity": 1,
+          "isAdd": false
         },
         {
           "name": "Beef Steak",
           "price": 209,
-          "picURL": "FoodPic/BeefSteak.png"
+          "picURL": "FoodPic/BeefSteak.png",
+          "quantity": 1,
+          "isAdd": false
         },
-        { "name": "Hot Dog", "price": 35, "picURL": "FoodPic/HotDog.png" },
-        { "name": "Salad", "price": 89, "picURL": "FoodPic/Salad.png" },
+        {
+          "name": "Hot Dog",
+          "price": 35,
+          "picURL": "FoodPic/HotDog.png",
+          "quantity": 1,
+          "isAdd": false
+        },
+        {
+          "name": "Salad",
+          "price": 89,
+          "picURL": "FoodPic/Salad.png",
+          "quantity": 1,
+          "isAdd": false
+        },
         {
           "name": "Bake Rice and Cereal",
           "price": 129,
-          "picURL": "FoodPic/BakeRiceandCereal.png"
+          "picURL": "FoodPic/BakeRiceandCereal.png",
+          "quantity": 1,
+          "isAdd": false
         },
         {
           "name": "Salad Roll",
           "price": 69,
-          "picURL": "FoodPic/SaladRoll.png"
+          "picURL": "FoodPic/SaladRoll.png",
+          "quantity": 1,
+          "isAdd": false
         },
-        { "name": "Yentafo", "price": 79, "picURL": "FoodPic/Yentafo.png" },
-        { "name": "Topped", "price": 79, "picURL": "FoodPic/Topped.png" },
+        {
+          "name": "Yentafo",
+          "price": 79,
+          "picURL": "FoodPic/Yentafo.png",
+          "quantity": 1,
+          "isAdd": false
+        },
+        {
+          "name": "Topped",
+          "price": 79,
+          "picURL": "FoodPic/Topped.png",
+          "quantity": 1,
+          "isAdd": false
+        },
         {
           "name": "Spaghetti",
           "price": 139,
-          "picURL": "FoodPic/Spaghetti.png"
+          "picURL": "FoodPic/Spaghetti.png",
+          "quantity": 1,
+          "isAdd": false
         },
         {
           "name": "Green noodles",
           "price": 79,
-          "picURL": "FoodPic/Greennoodles.png"
+          "picURL": "FoodPic/Greennoodles.png",
+          "quantity": 1,
+          "isAdd": false
         },
         {
           "name": "Tom Yum Kung",
           "price": 229,
-          "picURL": "FoodPic/TomYumKung.png"
+          "picURL": "FoodPic/TomYumKung.png",
+          "quantity": 1,
+          "isAdd": false
         },
         {
           "name": "Green Curry",
           "price": 229,
-          "picURL": "FoodPic/GreenCurry.png"
+          "picURL": "FoodPic/GreenCurry.png",
+          "quantity": 1,
+          "isAdd": false
         },
         {
           "name": "Fish Organ Soup",
           "price": 139,
-          "picURL": "FoodPic/FishOrganSoup.png"
+          "picURL": "FoodPic/FishOrganSoup.png",
+          "quantity": 1,
+          "isAdd": false
         },
         {
           "name": "Clear Soup",
           "price": 98,
-          "picURL": "FoodPic/ClearSoup.png"
+          "picURL": "FoodPic/ClearSoup.png",
+          "quantity": 1,
+          "isAdd": false
         },
         {
           "name": "Papaya Salad",
           "price": 60,
-          "picURL": "FoodPic/PapayaSalad.png"
+          "picURL": "FoodPic/PapayaSalad.png",
+          "quantity": 1,
+          "isAdd": false
         },
         {
           "name": "Grilled Pork Neck",
           "price": 79,
-          "picURL": "FoodPic/GrilledPorkNeck.png"
+          "picURL": "FoodPic/GrilledPorkNeck.png",
+          "quantity": 1,
+          "isAdd": false
         },
-        { "name": "Soiju", "price": 120, "picURL": "FoodPic/Soiju.png" },
+        {
+          "name": "Soiju",
+          "price": 120,
+          "picURL": "FoodPic/Soiju.png",
+          "quantity": 1,
+          "isAdd": false
+        },
         {
           "name": "Minced Pork Salad",
           "price": 89,
-          "picURL": "FoodPic/MincedPorkSalad.png"
+          "picURL": "FoodPic/MincedPorkSalad.png",
+          "quantity": 1,
+          "isAdd": false
         }
       ]
     },
@@ -90,23 +154,42 @@
       "type": "Fastfood",
       "iconURL": "FoodTypeIcons/FastFood.png",
       "menu": [
-        { "name": "Pizza", "price": 359, "picURL": "FoodPic/Pizza.png" },
+        {
+          "name": "Pizza",
+          "price": 359,
+          "picURL": "FoodPic/Pizza.png",
+          "quantity": 1,
+          "isAdd": false
+        },
+
         {
           "name": "French Fries",
           "price": 68,
-          "picURL": "FoodPic/FrenchFries.png"
+          "picURL": "FoodPic/FrenchFries.png",
+          "quantity": 1,
+          "isAdd": false
         },
         {
           "name": "Hamburger",
           "price": 149,
-          "picURL": "FoodPic/Hamburger.png"
+          "picURL": "FoodPic/Hamburger.png",
+          "quantity": 1,
+          "isAdd": false
         },
         {
           "name": "Beef Steak",
           "price": 209,
-          "picURL": "FoodPic/BeefSteak.png"
+          "picURL": "FoodPic/BeefSteak.png",
+          "quantity": 1,
+          "isAdd": false
         },
-        { "name": "Hot Dog", "price": 35, "picURL": "FoodPic/HotDog.png" }
+        {
+          "name": "Hot Dog",
+          "price": 35,
+          "picURL": "FoodPic/HotDog.png",
+          "quantity": 1,
+          "isAdd": false
+        }
       ]
     },
 
@@ -115,13 +198,27 @@
       "type": "Healthy",
       "iconURL": "FoodTypeIcons/HealthyFood.png",
       "menu": [
-        { "name": "Salad", "price": 89, "picURL": "FoodPic/Salad.png" },
+        {
+          "name": "Salad",
+          "price": 89,
+          "picURL": "FoodPic/Salad.png",
+          "quantity": 1,
+          "isAdd": false
+        },
         {
           "name": "Bake Rice and Cereal",
           "price": 129,
-          "picURL": "FoodPic/BakeRiceandCereal.png"
+          "picURL": "FoodPic/BakeRiceandCereal.png",
+          "quantity": 1,
+          "isAdd": false
         },
-        { "name": "Salad Roll", "price": 69, "picURL": "FoodPic/SaladRoll.png" }
+        {
+          "name": "Salad Roll",
+          "price": 69,
+          "picURL": "FoodPic/SaladRoll.png",
+          "quantity": 1,
+          "isAdd": false
+        }
       ]
     },
 
@@ -130,17 +227,33 @@
       "type": "Noodles",
       "iconURL": "FoodTypeIcons/Noodles.png",
       "menu": [
-        { "name": "Yentafo", "price": 79, "picURL": "FoodPic/Yentafo.png" },
-        { "name": "Topped", "price": 79, "picURL": "FoodPic/Topped.png" },
+        {
+          "name": "Yentafo",
+          "price": 79,
+          "picURL": "FoodPic/Yentafo.png",
+          "quantity": 1,
+          "isAdd": false
+        },
+        {
+          "name": "Topped",
+          "price": 79,
+          "picURL": "FoodPic/Topped.png",
+          "quantity": 1,
+          "isAdd": false
+        },
         {
           "name": "Spaghetti",
           "price": 139,
-          "picURL": "FoodPic/Spaghetti.png"
+          "picURL": "FoodPic/Spaghetti.png",
+          "quantity": 1,
+          "isAdd": false
         },
         {
           "name": "Green noodles",
           "price": 79,
-          "picURL": "FoodPic/Greennoodles.png"
+          "picURL": "FoodPic/Greennoodles.png",
+          "quantity": 1,
+          "isAdd": false
         }
       ]
     },
@@ -153,19 +266,31 @@
         {
           "name": "Tom Yum Kung",
           "price": 229,
-          "picURL": "FoodPic/TomYumKung.png"
+          "picURL": "FoodPic/TomYumKung.png",
+          "quantity": 1,
+          "isAdd": false
         },
         {
           "name": "Green Curry",
           "price": 229,
-          "picURL": "FoodPic/GreenCurry.png"
+          "picURL": "FoodPic/GreenCurry.png",
+          "quantity": 1,
+          "isAdd": false
         },
         {
           "name": "Fish Organ Soup",
           "price": 139,
-          "picURL": "FoodPic/FishOrganSoup.png"
+          "picURL": "FoodPic/FishOrganSoup.png",
+          "quantity": 1,
+          "isAdd": false
         },
-        { "name": "Clear Soup", "price": 98, "picURL": "FoodPic/ClearSoup.png" }
+        {
+          "name": "Clear Soup",
+          "price": 98,
+          "picURL": "FoodPic/ClearSoup.png",
+          "quantity": 1,
+          "isAdd": false
+        }
       ]
     },
 
@@ -177,18 +302,30 @@
         {
           "name": "Papaya Salad",
           "price": 60,
-          "picURL": "FoodPic/PapayaSalad.png"
+          "picURL": "FoodPic/PapayaSalad.png",
+          "quantity": 1,
+          "isAdd": false
         },
         {
           "name": "Grilled Pork Neck",
           "price": 79,
-          "picURL": "FoodPic/GrilledPorkNeck.png"
+          "picURL": "FoodPic/GrilledPorkNeck.png",
+          "quantity": 1,
+          "isAdd": false
         },
-        { "name": "Soiju", "price": 120, "picURL": "FoodPic/Soiju.png" },
+        {
+          "name": "Soiju",
+          "price": 120,
+          "picURL": "FoodPic/Soiju.png",
+          "quantity": 1,
+          "isAdd": false
+        },
         {
           "name": "Minced Pork Salad",
           "price": 89,
-          "picURL": "FoodPic/MincedPorkSalad.png"
+          "picURL": "FoodPic/MincedPorkSalad.png",
+          "quantity": 1,
+          "isAdd": false
         }
       ]
     }

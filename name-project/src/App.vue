@@ -11,20 +11,18 @@ import { getItems } from "./composable/getItems";
 const items = ref(getItems());
 // console.log(items)
 
-const menuArr = ref(items.value[0].menu)
+const menuArr = ref(items.value[0].menu);
 const updateMenuArr = (updateMenu) => {
   // console.log(updateMenu)
-  menuArr.value = updateMenu
+  menuArr.value = updateMenu;
   // console.log(menuArr.value)
-}
+};
 
 const userCart = ref([]);
 const updateUserCart = (updateCart) => {
-  userCart.value = updateCart
+  userCart.value = updateCart;
   // console.log(userCart.value)
-}
-
-
+};
 </script>
 
 <template>
@@ -71,29 +69,14 @@ const updateUserCart = (updateCart) => {
         <!-- Type & Order Selections -->
         <div id="selection" class="flex flex-col w-[65.14%] h-[100%]">
           <!-- type  -->
-          <div id="type" class="flex flex-col w-[100%] h-[50%]">
-            <!-- ข้อความ -->
-            <div class="flex flex-row justify-between h-[50%]">
-              <div class="mt-[50px] ml-[50px]">
-                <p class="font-['Baloo'] text-[48px]">Welcome to Eatland</p>
-              </div>
-            </div>
-            <!-- type selection components-->
-            <TypeSelect :items="items" @updateMenuArr="updateMenuArr"/>
-            
-          </div>
-          <!-- แสดง MENU -->
-          <div id="item" class="w-[100%] h-[50%] flex flex-col">
-            <!-- MENUS + search -->
-            <div class="flex flex-row h-[20%]">
-              <!-- MENUS -->
-              <div class="w-full flex justify-center">
-                <p class="font-['Baloo'] text-[48px]">Menus</p>
-              </div>
-              <SearchBar/>
-              <!-- Search Bar components -->
+          <TypeSelect :items="items" @updateMenuArr="updateMenuArr" />
 
-              <!-- <div class="w-full flex justify-end">
+          <!-- แสดง MENU -->
+          <MenuShowing :menuArr="menuArr" @currentUserCart="updateUserCart" />
+
+          <!-- Search Bar components -->
+
+          <!-- <div class="w-full flex justify-end">
                 <div class="w-[45px] h-[45px] flex flex-row mt-3 bg-gray-200 rounded-xl shadow-lg">
                   <button @click="search = !search" class="mt-[5px] ml-[10px]">
                     <MaterialSymbolsSearchRounded />
@@ -103,21 +86,11 @@ const updateUserCart = (updateCart) => {
                   placeholder="Type keyword..."
                   class="w-[10em] h-8 rounded-md ml-3 mt-5 p-2 bg-white border border-gray-500" />
               </div> -->
-            </div>
-            <!-- Menu Grid -->
-            <!-- menu components -->
-            <MenuShowing :menuArr="menuArr" @currentUserCart="updateUserCart"/>
-          </div>
+          <!-- Menu Grid -->
+          <!-- menu components -->
         </div>
         <!-- cart -->
-        <div id="cart" class="w-[35%] h-[100%] flex flex-col">
-          <!-- Text -->
-          <div class="flex justify-center mt-[50px]">
-            <h3 class="font-['Baloo'] text-[48px]">Your Cart</h3>
-          </div>
-          <!-- cart components -->
-          <UserCartShowing :userCart="userCart"/>
-        </div>
+        <UserCartShowing :userCart="userCart" />
       </div>
     </div>
   </div>

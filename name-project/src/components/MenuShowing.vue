@@ -8,7 +8,6 @@ const props = defineProps({
 });
 
 // console.log(props.menuArr)
-
 const userCart = ref([]);
 const addToCart = (menu) => {
   // console.log(menu);
@@ -22,11 +21,13 @@ defineEmits(["currentUserCart"]);
 
 <template>
   <div id="item" class="w-[100%] h-[50%] flex flex-col">
+    <!-- Menu + Search -->
     <div class="flex flex-row h-[20%]">
       <div class="w-full flex justify-center">
         <p class="font-['Baloo'] text-[48px]">Menus</p>
       </div>
     </div>
+    <!-- Menu Show -->
     <div class="grid grid-cols-3 justify-items-center gap-y-4 overflow-scroll">
       <div
         v-for="(menu, index) in menuArr"
@@ -46,7 +47,7 @@ defineEmits(["currentUserCart"]);
           "
           :disabled="menu.isAdd"
         >
-          Add
+          {{ menu.isAdd ? "Added" : "Add" }}
         </button>
       </div>
     </div>

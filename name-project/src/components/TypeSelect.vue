@@ -24,13 +24,13 @@ defineEmits(["updateMenuArr"]);
 
 <template>
   <div id="type" class="flex flex-col w-[100%] h-[50%]">
-    <!-- ข้อความ -->
+    <!-- Welcome text -->
     <div class="flex flex-row justify-between h-[50%]">
       <div class="mt-[50px] ml-[50px]">
         <p class="font-['Baloo'] text-[48px]">Welcome to Eatland</p>
       </div>
     </div>
-    <!-- type selection components-->
+    <!-- Type selection-->
     <ul class="flex flex-row ml-[50px] gap-3 h-[50%]">
       <li
         v-for="(item, index) in items"

@@ -23,6 +23,11 @@ const updateUserCart = (updateCart) => {
   userCart.value = updateCart;
   // console.log(userCart.value)
 };
+const currentPage = ref('Home')
+const changePage = (page) => {
+  currentPage.value = page
+  console.log(currentPage.value)
+}
 </script>
 
 <template>
@@ -46,12 +51,13 @@ const updateUserCart = (updateCart) => {
             Dr. Marcus Rashford
           </h1>
         </div>
-        <!-- Menu component -->
+        <!-- Home page -->
         <div
           id="home"
           class="flex justify-center mt-[50px] font-['Baloo'] cursor-pointer"
+          @click="changePage('Home')"
         >
-          <div id="home2" class="flex flex-row">
+          <div class="flex flex-row">
             <div
               class="w-[61px] h-[57px] bg-white rounded-[20px] shadow-lg relative pt-[10px]"
             >
@@ -60,11 +66,27 @@ const updateUserCart = (updateCart) => {
             <p class="text-2xl m-auto ml-5">Home</p>
           </div>
         </div>
+        <!-- Review page -->
+        <div
+          id="review"
+          class="flex justify-center mt-[50px] font-['Baloo'] cursor-pointer"
+          @click="changePage('Review')"
+        >
+          <div class="flex flex-row">
+            <div
+              class="w-[61px] h-[57px] bg-white rounded-[20px] shadow-lg relative pt-[10px]"
+            >
+              Icon
+            </div>
+            <p class="text-2xl m-auto pl-2">Review</p>
+          </div>
+        </div>
       </div>
       <!-- ORDER -->
       <div
         id="order"
         class="flex flex-row w-[80%] h-[91%] bg-white rounded-[59px] mt-10 mr-6"
+        v-if="currentPage === 'Home'"
       >
         <!-- Type & Order Selections -->
         <div id="selection" class="flex flex-col w-[65.14%] h-[100%]">

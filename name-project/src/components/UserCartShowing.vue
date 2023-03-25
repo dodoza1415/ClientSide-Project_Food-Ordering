@@ -31,12 +31,11 @@ const totalAmount = computed(() => {
 
 <template>
   <div id="cart" class="w-[35%] h-[100%] flex flex-col">
-    <!-- Text -->
+    <!-- Your cart text -->
     <div class="flex justify-center mt-[50px]">
       <h3 class="font-['Baloo'] text-[48px]">Your Cart</h3>
     </div>
-    <!-- cart components -->
-
+    <!-- Cart Show -->
     <div class="w-full ml-[20px] font-['?????']">
       <table class="w-full">
         <thead>

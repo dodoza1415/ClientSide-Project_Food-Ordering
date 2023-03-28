@@ -28,7 +28,7 @@ const addReview = async (newReview) => {
       console.log("added sucessfully");
       const addReview = await res.json();
       reviews.value.push(addReview);
-      changeComponent("Review");
+      changeComponent("Review")
     } else throw new Error("cannot add");
   } catch (error) {
     console.log(error);
@@ -61,7 +61,7 @@ const modifyReview = async (updateReview) => {
           r.topic = updateReview.topic;
           r.description = updateReview.description;
           editReview.value = undefined
-          changeComponent("Review");
+          changeComponent("Review")
         }
         return r;
       });

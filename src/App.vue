@@ -123,8 +123,6 @@ const changePage = (page) => {
         
       >
       <Reviews/>
-      
-        
       </div>
     </div>
   </div>

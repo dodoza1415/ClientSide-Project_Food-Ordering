@@ -1,28 +1,35 @@
 <script setup>
 import { ref } from "vue";
+const props = defineProps({
+  quantityOrder: {
+    type: Number,
+    require: true,
+  },
+});
 
-let quantity = ref(1);
-const increment = () => {
-   quantity.value++
-//    console.log(quantity.value)
-}
-
-const decrement = () => {
-    if(quantity.value === 1){
-        return ''
-    }else{
-        quantity.value--
-    }
-    // console.log(quantity.value)
-}
-
-defineEmits(['quantityOrdered'])
+defineEmits(["quantityOrdered"]);
 </script>
 
 <template>
-  <button class="btn btn-xs btn-circle btn-ghost btn-active" @click="decrement(); $emit('quantityOrdered', quantity)">-</button>
-  {{ quantity }}
-  <button class="btn btn-xs btn-circle btn-ghost btn-active" @click="increment(); $emit('quantityOrdered', quantity)">+</button>
+  <button
+    class="btn btn-xs btn-circle btn-ghost btn-active"
+    @click="
+      props.quantityOrder <= 1 ? '' : props.quantityOrder--;
+      $emit('quantityOrdered', props.quantityOrder);
+    "
+  >
+    -
+  </button>
+  {{ props.quantityOrder }}
+  <button
+    class="btn btn-xs btn-circle btn-ghost btn-active"
+    @click="
+      props.quantityOrder++;
+      $emit('quantityOrdered', props.quantityOrder);
+    "
+  >
+    +
+  </button>
 </template>
 
 <style scoped></style>

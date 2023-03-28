@@ -60,6 +60,8 @@ const modifyReview = async (updateReview) => {
         if (r.id === updateReview.id) {
           r.topic = updateReview.topic;
           r.description = updateReview.description;
+          editReview.value = undefined
+          changeComponent("Review");
         }
         return r;
       });
@@ -84,12 +86,12 @@ const modifyReview = async (updateReview) => {
       <div
         v-for="review in reviews"
         :key="review.id"
-        class="flex flex-col m-10 border border-black rounded-md p-3 w-[45em]"
+        class="flex flex-col m-10 border border-black rounded-md p-3 w-[45em] h-fit "
       >
         <h1 class="font-['Baloo'] text-xl">
           <span>{{ review.topic }}</span>
         </h1>
-        <p>{{ review.description }}</p>
+        <p class="h-[10em] overflow-scroll">{{ review.description }}</p>
         <div class="flex justify-end">
           <button class="btn btn-sm w-[3em]" @click="editMode(review)">
             Edit

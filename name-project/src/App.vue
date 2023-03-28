@@ -3,7 +3,6 @@ import { ref, onMounted } from "vue";
 import HomeIcon from "./assets/icons/IcOutlineHome.vue";
 import TypeSelect from "./components/TypeSelect.vue";
 import MenuShowing from "./components/MenuShowing.vue";
-import UserCartShowing from "./components/UserCartShowing.vue";
 import MaterialSymbolsEditSquareOutlineRounded from './assets/icons/MaterialSymbolsEditSquareOutlineRounded.vue'
 import CartItemsShowing from "./components/CartItemsShowing.vue";
 import SearchBar from "./components/SearchBar.vue";
@@ -116,11 +115,12 @@ const changePage = (page) => {
           <!-- menu components -->
         </div>
         <!-- cart -->
-        <UserCartShowing :userCart="userCart" />
+        <CartItemsShowing :userCart="userCart" />
       </div>
       <div
-        class="w-[80%] h-[91%] bg-white rounded-[59px] mt-10 mr-6"
+        class="w-[80%] h-[91%] bg-white rounded-[59px] mt-10 mr-6 overflow-scroll"
         v-if="currentPage === 'Review'"
+        
       >
       <Reviews/>
       

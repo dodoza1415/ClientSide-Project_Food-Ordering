@@ -70,7 +70,7 @@ const deleteItem = (item) => {
           <tr class="text-left">
             <th></th>
             <th>Total Amount:</th>
-            <th>
+            <th class="text-sm">
               {{
                 userCart.reduce(
                   (total, currentValue) =>

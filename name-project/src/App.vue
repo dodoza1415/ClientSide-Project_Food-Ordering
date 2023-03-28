@@ -1,12 +1,15 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import HomeIcon from "./assets/icons/IcOutlineHome.vue";
 import TypeSelect from "./components/TypeSelect.vue";
 import MenuShowing from "./components/MenuShowing.vue";
 import UserCartShowing from "./components/UserCartShowing.vue";
+import MaterialSymbolsEditSquareOutlineRounded from './assets/icons/MaterialSymbolsEditSquareOutlineRounded.vue'
 import CartItemsShowing from "./components/CartItemsShowing.vue";
 import SearchBar from "./components/SearchBar.vue";
 import { getItems } from "./composable/getItems";
+import Reviews from "./components/Reviews.vue"
+
 
 const items = ref(getItems());
 // console.log(items)
@@ -23,11 +26,12 @@ const updateUserCart = (updateCart) => {
   userCart.value = updateCart;
   // console.log(userCart.value)
 };
-const currentPage = ref('Home')
+const currentPage = ref('Home');
 const changePage = (page) => {
-  currentPage.value = page
-  console.log(currentPage.value)
-}
+  currentPage.value = page;
+  // console.log(currentPage.value)
+};
+
 </script>
 
 <template>
@@ -74,9 +78,9 @@ const changePage = (page) => {
         >
           <div class="flex flex-row">
             <div
-              class="w-[61px] h-[57px] bg-white rounded-[20px] shadow-lg relative pt-[10px]"
+              class="w-[61px] h-[57px] bg-white rounded-[20px] shadow-lg relative pt-[10px] pl-[16.5px]"
             >
-              Icon
+            <MaterialSymbolsEditSquareOutlineRounded/>
             </div>
             <p class="text-2xl m-auto pl-2">Review</p>
           </div>
@@ -113,6 +117,14 @@ const changePage = (page) => {
         </div>
         <!-- cart -->
         <UserCartShowing :userCart="userCart" />
+      </div>
+      <div
+        class="w-[80%] h-[91%] bg-white rounded-[59px] mt-10 mr-6"
+        v-if="currentPage === 'Review'"
+      >
+      <Reviews/>
+      
+        
       </div>
     </div>
   </div>

@@ -27,6 +27,12 @@ const calTotal = (index, amount) => {
 const totalAmount = computed(() => {
   return amountArr.value.reduce((total, value) => total + value, 0);
 });
+
+const deleteItem = (item) => {
+  item.isAdd = !item.isAdd
+  props.userCart.splice(((props.userCart.map(x => x.name)).indexOf(item.name)), 1)
+  // console.log(props.userCart)
+}
 </script>
 
 <template>
@@ -40,6 +46,7 @@ const totalAmount = computed(() => {
       <table class="w-full">
         <thead>
           <tr class="text-left">
+            <th></th>
             <th class="w-[45%]">Menu</th>
             <th class="w-[20%]">Price</th>
             <th class="w-[35%] pl-[15px]">Quantity</th>
@@ -47,6 +54,7 @@ const totalAmount = computed(() => {
         </thead>
         <tbody>
           <tr v-for="(item, index) in userCart">
+            <button class="btn btn-error btn-xs mr-1" @click="deleteItem(item)">X</button>
             <td>{{ item.name }}</td>
             <td>{{ item.price * item.quantity }} ฿</td>
             <td class="pl-[15px]">
@@ -72,8 +80,9 @@ const totalAmount = computed(() => {
             </td>
           </tr>
           <tr class="text-left">
+            <th></th>
             <th>Total Amount:</th>
-            <th>{{ totalAmount }} Baht</th>
+            <th class="text-sm">{{ totalAmount }} Baht</th>
           </tr>
         </tbody>
       </table>

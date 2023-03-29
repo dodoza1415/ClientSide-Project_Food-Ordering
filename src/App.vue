@@ -33,7 +33,6 @@ const changePage = (page) => {
 </script>
 
 <template>
-  {{ userCart }}
   <div id="main" class="w-full h-[100vh] pl-[50px] flex justify-center">
     <div
       id="secondary"
@@ -45,7 +44,7 @@ const changePage = (page) => {
         <div id="profile" class="flex flex-col mt-[80px]">
           <img
             id="profilepic"
-            src=""
+            src="./assets/Dr.rash.jpg"
             alt="profilePic"
             class="rounded-lg"
           />

@@ -6,6 +6,7 @@ const props = defineProps({
     type: Object,
     require: true,
   },
+  
 });
 
 const updateReview = ref({});
@@ -15,13 +16,13 @@ onMounted(() => {
       topic: "",
       description: "",
     };
-  } else if(props.reviews !== undefined){
-    updateReview.value = props.reviews
+  } else if (props.reviews !== undefined) {
+    updateReview.value = props.reviews;
     // console.log(updateReview.value)
   }
 });
 
-defineEmits(['add', 'edit'])
+defineEmits(["add", "edit"]);
 </script>
 
 <template>
@@ -39,8 +40,20 @@ defineEmits(['add', 'edit'])
       class="textarea textarea-bordered w-[25em]"
       v-model="updateReview.description"
     ></textarea>
-    <button class="btn btn-success w-[15em] mt-4" @click="$emit('edit', updateReview)" v-if="updateReview.id">Edit</button>
-    <button class="btn btn-success w-[15em] mt-4" @click="$emit('add', updateReview)" v-else>Write Your Review</button>
+    <button
+      class="btn btn-success w-[15em] mt-4"
+      @click="$emit('edit', updateReview)"
+      v-if="updateReview.id"
+    >
+      Edit
+    </button>
+    <button
+      class="btn btn-success w-[15em] mt-4"
+      @click="$emit('add', updateReview)"
+      v-else
+    >
+      Write Your Review
+    </button>
   </div>
 </template>
 

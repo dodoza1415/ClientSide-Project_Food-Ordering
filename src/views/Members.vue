@@ -7,8 +7,8 @@ const members = ref(getMembers());
 // console.log(members.value)
 
 const router = useRouter();
-const gotoMember = (stdId) => {
-  router.push({ name: "Member", params: { stdId: stdId } });
+const gotoMember = (id) => {
+  router.push({ name: "Member", params: { stdId: id } });
 };
 </script>
 
@@ -29,4 +29,5 @@ const gotoMember = (stdId) => {
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+</style>

@@ -30,7 +30,6 @@ const changePage = (page) => {
   currentPage.value = page;
   // console.log(currentPage.value)
 };
-
 </script>
 
 <template>
@@ -94,7 +93,7 @@ const changePage = (page) => {
         <!-- Type & Order Selections -->
         <div id="selection" class="flex flex-col w-[65.14%] h-[100%]">
           <!-- type  -->
-          <TypeSelect :items="items" @updateMenuArr="updateMenuArr" />
+          <TypeSelect :items="items" @updateMenuArr="updateMenuArr"/>
 
           <!-- แสดง MENU -->
           <MenuShowing :menuArr="menuArr" @currentUserCart="updateUserCart" />

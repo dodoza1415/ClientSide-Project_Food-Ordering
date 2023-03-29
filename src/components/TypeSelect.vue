@@ -19,7 +19,7 @@ const isSelected = (index = 0) => {
   // console.log(menuArr.value)
 };
 
-defineEmits(["updateMenuArr"]);
+defineEmits(["updateMenuArr", 'refId']);
 </script>
 
 <template>

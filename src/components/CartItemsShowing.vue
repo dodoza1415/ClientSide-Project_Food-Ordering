@@ -1,6 +1,5 @@
 <script setup>
 import { computed, provide, ref } from "vue";
-import QuantityOrdered from "./QuantityOrdered.vue";
 const props = defineProps({
   userCart: {
     type: Object,
@@ -10,6 +9,7 @@ const props = defineProps({
 
 const deleteItem = (item) => {
   item.isAdd = !item.isAdd
+  item.quantity = 1
   props.userCart.splice(((props.userCart.map(x => x.name)).indexOf(item.name)), 1)
   // console.log(props.userCart)
 }

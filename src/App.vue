@@ -3,12 +3,13 @@ import { ref, onMounted } from "vue";
 import HomeIcon from "./assets/icons/IcOutlineHome.vue";
 import TypeSelect from "./components/TypeSelect.vue";
 import MenuShowing from "./components/MenuShowing.vue";
-import MaterialSymbolsEditSquareOutlineRounded from './assets/icons/MaterialSymbolsEditSquareOutlineRounded.vue'
+import MaterialSymbolsEditSquareOutlineRounded from "./assets/icons/MaterialSymbolsEditSquareOutlineRounded.vue";
 import CartItemsShowing from "./components/CartItemsShowing.vue";
-import SearchBar from "./components/SearchBar.vue";
 import { getItems } from "./composable/getItems";
-import Reviews from "./components/Reviews.vue"
-
+import Reviews from "./components/Reviews.vue";
+import CarbonInformation from './assets/icons/CarbonInformation.vue'
+import RouterNav from "./components/RouterNav.vue";
+import { RouterView } from "vue-router";
 
 const items = ref(getItems());
 // console.log(items)
@@ -25,7 +26,7 @@ const updateUserCart = (updateCart) => {
   userCart.value = updateCart;
   // console.log(userCart.value)
 };
-const currentPage = ref('Home');
+const currentPage = ref("Home");
 const changePage = (page) => {
   currentPage.value = page;
   // console.log(currentPage.value)
@@ -62,7 +63,7 @@ const changePage = (page) => {
             <div
               class="w-[61px] h-[57px] bg-white rounded-[20px] shadow-lg relative pt-[10px]"
             >
-              <HomeIcon id="homeIcon" class="pl-[14px] mt-[3px]"/>
+              <HomeIcon id="homeIcon" class="pl-[14px] mt-[3px]" />
             </div>
             <p class="text-2xl m-auto ml-5">Home</p>
           </div>
@@ -77,11 +78,25 @@ const changePage = (page) => {
             <div
               class="w-[61px] h-[57px] bg-white rounded-[20px] shadow-lg relative pt-[10px] pl-[16.5px]"
             >
-            <MaterialSymbolsEditSquareOutlineRounded/>
+              <MaterialSymbolsEditSquareOutlineRounded />
             </div>
             <p class="text-2xl m-auto pl-2">Review</p>
           </div>
         </div>
+        
+        <div
+          class="flex justify-center mt-[50px] font-['Baloo'] cursor-pointer ml-[-20px]"
+          @click="changePage('Info')"
+        >
+        <div class="flex flex-row">
+            <div
+              class="w-[61px] h-[57px] bg-white rounded-[20px] shadow-lg relative pt-[14px] pl-[17px]"
+            >
+              <CarbonInformation/>
+            </div>
+            <p class="text-2xl m-auto ml-5">Info</p>
+          </div>
+      </div>
       </div>
       <!-- ORDER -->
       <div
@@ -92,7 +107,7 @@ const changePage = (page) => {
         <!-- Type & Order Selections -->
         <div id="selection" class="flex flex-col w-[65.14%] h-[100%]">
           <!-- type  -->
-          <TypeSelect :items="items" @updateMenuArr="updateMenuArr"/>
+          <TypeSelect :items="items" @updateMenuArr="updateMenuArr" />
 
           <!-- แสดง MENU -->
           <MenuShowing :menuArr="menuArr" @currentUserCart="updateUserCart" />
@@ -118,17 +133,25 @@ const changePage = (page) => {
       <div
         class="w-[80%] h-[91%] bg-white rounded-[59px] mt-10 mr-6 overflow-scroll"
         v-if="currentPage === 'Review'"
-        
       >
-      <Reviews/>
+        <Reviews />
+      </div>
+      <div
+        class="w-[80%] h-[91%] bg-white rounded-[59px] mt-10 mr-6 overflow-scroll"
+        v-if="currentPage === 'Info'"
+      >
+      <div class="flex flex-row m-10 gap-2">
+        <RouterNav/>
+      </div>
+      <RouterView/>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Baloo:wght@400');
-@import url('https://fonts.googleapis.com/css2?family=Alkatra:wght@600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Baloo:wght@400");
+@import url("https://fonts.googleapis.com/css2?family=Alkatra:wght@600&display=swap");
 
 #main {
   background: conic-gradient(

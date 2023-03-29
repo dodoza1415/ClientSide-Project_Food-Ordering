@@ -67,7 +67,7 @@ const deleteItem = (item) => {
               </button>
             </td>
           </tr>
-          <tr class="text-left">
+          <tr class="text-left" v-if="props.userCart[0]">
             <th></th>
             <th>Total Amount:</th>
             <th class="text-sm">

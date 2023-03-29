@@ -70,6 +70,21 @@ const modifyReview = async (updateReview) => {
     console.log(error);
   }
 };
+
+const deleteReview = async (reviewId) => {
+  try {
+    const res = await fetch(`http://localhost:5001/reviews/${reviewId}`, {
+      method: "DELETE",
+    });
+    if (res.status === 200) {
+      console.log("delete sucessfully");
+      console.log
+      reviews.value = reviews.value.filter((r) => r.id !== reviewId);
+    } else throw new Error("cannot delete data");
+  } catch (error) {
+    console.log(error);
+  }
+};
 </script>
 
 <template>
@@ -92,9 +107,12 @@ const modifyReview = async (updateReview) => {
           <span>{{ review.topic }}</span>
         </h1>
         <p class="h-[10em] overflow-scroll">{{ review.description }}</p>
-        <div class="flex justify-end">
+        <div class="flex justify-end gap-1 mt-1">
           <button class="btn btn-sm w-[3em]" @click="editMode(review)">
             Edit
+          </button>
+          <button class="btn btn-sm btn-error w-[3em] " @click="deleteReview(review.id)">
+            X
           </button>
         </div>
       </div>

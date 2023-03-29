@@ -2,32 +2,27 @@ import { createRouter, createWebHistory } from "vue-router";
 import AboutUs from "../views/AboutUs.vue";
 import Members from "../views/Members.vue";
 import Member from "../views/Member.vue";
-
-// const history = createWebHistory();
+// import Reviews from "../components/Reviews.vue"
 const router = createRouter({
-    history:createWebHistory(),
-    routes:[
-        {
-          path: "/aboutus",
-          name: "AboutUs",
-          component: AboutUs,
-        },
-        {
-          path: "/members",
-          name: "Members",
-          component: Members,
-        },
-        {
-            path: "/member/:stdId",
-            name: "Member",
-            component: Member,
-        },
+  history: createWebHistory(),
+  routes: [
+    {
+      path: "/aboutus",
+      name: "AboutUs",
+      component: AboutUs,
+    },
+    {
+      path: "/members",
+      name: "Members",
+      component: Members,
+    },
+    {
+      path: "/member/:stdId",
+      name: "Member",
+      component: Member,
+    },
+  ],
+  linkExactActiveClass: "text-pink-500",
+});
 
-      ],
-    linkExactActiveClass:'text-pink-500'
-})
-
-
-
-// const router = createRouter({ history, routes });
 export default router;

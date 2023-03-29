@@ -63,7 +63,7 @@ const changePage = (page) => {
             <div
               class="w-[61px] h-[57px] bg-white rounded-[20px] shadow-lg relative pt-[10px]"
             >
-              <HomeIcon id="homeIcon" />
+              <HomeIcon id="homeIcon" class="pl-[14px] mt-[3px]"/>
             </div>
             <p class="text-2xl m-auto ml-5">Home</p>
           </div>

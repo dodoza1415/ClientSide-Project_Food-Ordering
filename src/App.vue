@@ -45,7 +45,7 @@ const changePage = (page) => {
         <div id="profile" class="flex flex-col mt-[80px]">
           <img
             id="profilepic"
-            src="./assets/Dr.rash.jpg"
+            src=""
             alt="profilePic"
             class="rounded-lg"
           />
@@ -128,8 +128,8 @@ const changePage = (page) => {
 </template>
 
 <style scoped>
-@import url(https://fonts.googleapis.com/css2?family=Baloo:wght@400);
-@import url(https://fonts.googleapis.com/css2?family=?????:wght@400);
+@import url('https://fonts.googleapis.com/css2?family=Baloo:wght@400');
+@import url('https://fonts.googleapis.com/css2?family=Alkatra:wght@600&display=swap');
 
 #main {
   background: conic-gradient(

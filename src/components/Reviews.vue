@@ -28,7 +28,7 @@ const addReview = async (newReview) => {
       console.log("added sucessfully");
       const addReview = await res.json();
       reviews.value.push(addReview);
-      changeComponent("Review")
+      changeComponent("Review");
     } else throw new Error("cannot add");
   } catch (error) {
     console.log(error);
@@ -55,17 +55,17 @@ const modifyReview = async (updateReview) => {
       }
     );
     if (res.status === 200) {
-      console.log('edit sucessfully')
+      console.log("edit sucessfully");
       reviews.value = reviews.value.map((r) => {
         if (r.id === updateReview.id) {
           r.topic = updateReview.topic;
           r.description = updateReview.description;
-          editReview.value = undefined
-          changeComponent("Review")
+          editReview.value = undefined;
+          changeComponent("Review");
         }
         return r;
       });
-    }else throw new Error('cannot edit')
+    } else throw new Error("cannot edit");
   } catch (error) {
     console.log(error);
   }
@@ -86,7 +86,7 @@ const modifyReview = async (updateReview) => {
       <div
         v-for="review in reviews"
         :key="review.id"
-        class="flex flex-col m-10 border border-black rounded-md p-3 w-[45em] h-fit "
+        class="flex flex-col m-10 border border-black rounded-md p-3 w-[45em] h-fit"
       >
         <h1 class="font-['Baloo'] text-xl">
           <span>{{ review.topic }}</span>

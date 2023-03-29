@@ -21,7 +21,7 @@ onMounted(() => {
   }
 });
 
-defineEmits(['add'])
+defineEmits(['add', 'edit'])
 </script>
 
 <template>

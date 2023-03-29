@@ -22,7 +22,7 @@ const deleteItem = (item) => {
       <h3 class="font-['Baloo'] text-[48px]">Your Cart</h3>
     </div>
     <!-- Cart Show -->
-    <div class="w-full ml-[20px] font-['?????']">
+    <div class="w-full ml-[20px] font-['Alkatra']">
       <table class="w-full">
         <thead>
           <tr class="text-left">

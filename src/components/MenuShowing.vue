@@ -45,7 +45,6 @@ defineEmits(["currentUserCart"]);
           </button>
         </div>
         <input
-            @input="searchBar()"
             v-show="search"
             v-model.trim="userKeywords"
             type="text"
@@ -63,8 +62,8 @@ defineEmits(["currentUserCart"]);
         <div class="flex justify-center">
           <img :src="menu.picURL" class="w-[120px] h-[120px] rounded-[30px]" />
         </div>
-        <p class="font-['Baloo'] text-lg self-center">{{ menu.name }}</p>
-        <p class="font-['Baloo'] text-lg self-center">{{ menu.price }} ฿</p>
+        <p class="font-['Alkatra'] text-lg self-center">{{ menu.name }}</p>
+        <p class="font-['Alkatra'] text-lg self-center">{{ menu.price }} ฿</p>
 
         <button
           class="btn btn-success btn-md w-[100px] self-center font-['Baloo']"

@@ -35,7 +35,7 @@ defineEmits(["updateMenuArr", 'refId']);
       <li
         v-for="(item, index) in items"
         :key="index"
-        class="w-[89px] h-[130px] rounded-[59px] text-black shadow-xl font-['?????'] cursor-pointer"
+        class="w-[89px] h-[130px] rounded-[59px] text-black shadow-xl font-['Alkatra'] cursor-pointer"
         @click="
           isSelected(index);
           $emit('updateMenuArr', menuArr);

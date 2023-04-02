@@ -25,7 +25,7 @@ const addReview = async (newReview) => {
       body: JSON.stringify(newReview),
     });
     if (res.status === 201) {
-      console.log("added sucessfully");
+      // console.log("added sucessfully");
       const addReview = await res.json();
       reviews.value.push(addReview);
       changeComponent("Review");
@@ -55,7 +55,7 @@ const modifyReview = async (updateReview) => {
       }
     );
     if (res.status === 200) {
-      console.log("edit sucessfully");
+      // console.log("edit sucessfully");
       reviews.value = reviews.value.map((r) => {
         if (r.id === updateReview.id) {
           r.topic = updateReview.topic;
